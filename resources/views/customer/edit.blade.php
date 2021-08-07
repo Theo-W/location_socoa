@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <livewire:customers.customer/>
+    <h1>Modifier mon client</h1>
 @endsection

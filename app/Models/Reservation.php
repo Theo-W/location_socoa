@@ -11,7 +11,7 @@ class Reservation extends Model
 
     protected $fillable = ['title', 'start', 'end', 'pay', 'customer_id'];
 
-    public function customers()
+    public function customer()
     {
         return $this->hasMany(Customer::class);
     }
