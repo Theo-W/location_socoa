@@ -29,6 +29,9 @@ Route::middleware('auth')->prefix('customer')->group(function () {
     Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
     Route::get('/customer/create', [CustomerController::class, 'create'])->name('customer_create');
     Route::post('/customer/create', [CustomerController::class, 'store'])->name('customer_create_store');
+    Route::get('/customer/edit/{id}', [CustomerController::class, 'edit'])->name('customer_edit');
+    Route::post('/customer/edit/{id}', [CustomerController::class, 'storeEdit'])->name('customer_edit_store');
+    Route::delete('/customer/delete/{id}', [CustomerController::class, 'delete'])->name('customer_delete');
 });
 Route::middleware('auth')->prefix('reservation')->group(function () {
     Route::get('/customer', [ReservationController::class, 'index'])->name('reservation');
