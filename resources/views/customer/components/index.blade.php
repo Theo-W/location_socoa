@@ -54,7 +54,7 @@
             @endforeach
         @else
             <th colspan="6">
-                <p class="text-center mt-3">{{ __('customer.dont_customer') }}</p>
+                <p class="text-center mt-3">{{ __('components/customers.dont_customer') }}</p>
             </th>
         @endif
         </tbody>

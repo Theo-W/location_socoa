@@ -33,4 +33,5 @@ return [
     ],
 
     'research' => 'Rechercher',
+    'dont_customer' => "Il n'y a pas de clients"
 ];
