@@ -25,6 +25,10 @@
                 },
                 locale: '{{ config('app.locale') }}',
                 themeSystem: 'bootstrap',
+                event: '{{ $reservations ?? '{}' }}',
+                editable: true,
+                eventResize: info => this.eventChange(info.event),
+                eventDrop: info => this.eventChange(info.event),
             });
             calendar.render();
         });
