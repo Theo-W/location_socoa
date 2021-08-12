@@ -26,7 +26,7 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->prefix('customer')->group(function () {
-    Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
+    Route::get('/', [CustomerController::class, 'index'])->name('customer');
     Route::get('/customer/create', [CustomerController::class, 'create'])->name('customer_create');
     Route::post('/customer/create', [CustomerController::class, 'store'])->name('customer_create_store');
     Route::get('/customer/edit/{slug}/{id}', [CustomerController::class, 'edit'])->name('customer_edit');
