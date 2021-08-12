@@ -37,7 +37,7 @@
                     <td>{{ $customer->phone }}</td>
                     <td>
                         <div class="d-flex">
-                            <a href="{{ route('customer_edit', ['id' => $customer->id]) }}" class="btn btn-primary mr-2">
+                            <a href="{{ route('customer_edit', ['slug' => $customer->slug , 'id' => $customer->id]) }}" class="btn btn-primary mr-2">
                                 {{ __('components/customers.button.edit') }}
                             </a>
                             <form method="post" action="{{ route('customer_delete', [ 'id'=> $customer->id ]) }}"

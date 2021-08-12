@@ -9,7 +9,7 @@ class Customer extends Model
 {
     use HasFactory;
 
-    protected $fillable =  ['first_name', 'last_name', 'phone', 'email', 'adress', 'postal_code', 'city'];
+    protected $fillable =  ['first_name', 'last_name', 'phone', 'email', 'adress', 'postal_code', 'city', 'slug'];
 
     public function reservations()
     {

@@ -2,7 +2,6 @@
 
 @section('content')
     <h1>{{ __('components/customers.title.edit') }}</h1>
-
     <form method="post" action="{{ route('customer_edit_store', ['id' => $customer->id]) }}">
         @csrf
         <div class="row mt-2">
