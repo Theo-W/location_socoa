@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {!!  Vite::asset('/js/main.jsx', ['react']) !!}
-    @livewireStyles
+{!!  Vite::asset('/js/main.jsx', ['react']) !!}
+@livewireStyles
 
 <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -27,13 +27,21 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::currentRouteNamed('calendar') ? 'active' : '' }}" href="{{ route('calendar') }}">{{ __('layout/nav.calendar') }}</a>
+                    <a class="nav-link {{ Route::currentRouteNamed('calendar') ? 'active' : '' }}"
+                       href="{{ route('calendar') }}">
+                        <img src="{{ asset('img/icon/calendar.svg') }}" width="18" alt="">
+                        {{ __('layout/nav.calendar') }}
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::currentRouteNamed('reservation') ? 'active' : '' }}" href="{{ route('reservation') }}">{{ __('layout/nav.reservation') }}</a>
+                    <a class="nav-link {{ Route::currentRouteNamed('reservation') ? 'active' : '' }}"
+                       href="{{ route('reservation') }}"> <img src="{{ asset('img/icon/ticket.svg') }}" width="18"
+                                                               alt=""> {{ __('layout/nav.reservation') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::currentRouteNamed('customer') ? 'active' : '' }}" href="{{ route('customer') }}">{{ __('layout/nav.customer') }}</a>
+                    <a class="nav-link {{ Route::currentRouteNamed('customer') ? 'active' : '' }}"
+                       href="{{ route('customer') }}"> <img src="{{ asset('img/icon/user.svg') }}" width="18"
+                                                            alt=""> {{ __('layout/nav.customer') }}</a>
                 </li>
             </ul>
 
