@@ -34,8 +34,8 @@ Route::middleware('auth')->prefix('customer')->group(function () {
     Route::delete('/customer/delete/{id}', [CustomerController::class, 'delete'])->name('customer_delete');
 });
 Route::middleware('auth')->prefix('reservation')->group(function () {
-    Route::get('/customer', [ReservationController::class, 'index'])->name('reservation');
+    Route::get('/', [ReservationController::class, 'index'])->name('reservation');
 });
 Route::middleware('auth')->prefix('customer')->group(function () {
-    Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar');
+    Route::get('/', [CalendarController::class, 'index'])->name('calendar');
 });
