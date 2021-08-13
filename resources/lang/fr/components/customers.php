@@ -33,5 +33,17 @@ return [
     ],
 
     'research' => 'Rechercher',
-    'dont_customer' => "Il n'y a pas de clients"
+    'dont_customer' => "Il n'y a pas de clients",
+
+    'modal' => [
+        'title' => [
+            'contact' => 'Contact :',
+            'information' => 'Information Complémentaire :'
+        ],
+        'phone' => 'Téléphone :',
+        'email'=> 'Email :',
+        'adress' => 'Adresse :',
+        'postal_code' => 'Code Postal :',
+        'city' => 'Ville :',
+    ]
 ];

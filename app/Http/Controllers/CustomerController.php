@@ -19,6 +19,16 @@ class CustomerController extends Controller
         return view('customer.create');
     }
 
+
+    public function show(string $slug, int $id)
+    {
+        $customer = Customer::where('id', $id)->orWhere('slug', $slug)->first();
+
+        return view('customer.modal._show', [
+            'customer' => $customer
+        ]);
+    }
+
     public function store(Request $request)
     {
         Customer::create([

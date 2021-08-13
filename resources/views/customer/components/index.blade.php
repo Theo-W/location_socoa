@@ -1,15 +1,20 @@
 <div>
     <div class="d-flex justify-content-between align-items-center">
         <h1>{{ __('components/customers.title.my_customents') }}</h1>
-        <a href="{{ route('customer_create') }}" class="btn btn-primary">{{ __('components/customers.button.create_customer') }}</a>
+        <a href="{{ route('customer_create') }}"
+           class="btn btn-primary">
+            <img src="{{ asset('img/icon/plus_light.svg') }}"  class="mx-1" width="18px" alt="">
+            {{ __('components/customers.button.create_customer') }}
+        </a>
     </div>
 
     <div class="mt-4 d-flex justify-content-end">
         <div></div>
         <div class="input-group w-25">
             <div class="input-group flex-nowrap">
-                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-search text-secondary"></i></span>
-                <input class="form-control py-2 border-right-0 border" placeholder="{{ __('components/customers.research') }}"
+                <span class="input-group-text" id="addon-wrapping"><img src="{{ asset('img/icon/search.svg') }}" width="18" alt=""></span>
+                <input class="form-control py-2 border-right-0 border"
+                       placeholder="{{ __('components/customers.research') }}"
                        type="search"
                        value="search"
                        id="example-search-input"
@@ -20,11 +25,11 @@
 
     <table class="table mt-3">
         <thead>
-            <th>{{ __('components/customers.table.last_name') }}</th>
-            <th>{{ __('components/customers.table.first_name') }}</th>
-            <th>{{ __('components/customers.table.email') }}</th>
-            <th>{{ __('components/customers.table.phone') }}</th>
-            <th>{{ __('components/customers.table.actions') }}</th>
+        <th class="col">{{ __('components/customers.table.last_name') }}</th>
+        <th class="col">{{ __('components/customers.table.first_name') }}</th>
+        <th class="col">{{ __('components/customers.table.email') }}</th>
+        <th class="col">{{ __('components/customers.table.phone') }}</th>
+        <th class="col">{{ __('components/customers.table.actions') }}</th>
         </thead>
 
         <tbody>
@@ -36,16 +41,18 @@
                     <td>{{ $customer->email }}</td>
                     <td>{{ $customer->phone }}</td>
                     <td>
-                        <div class="d-flex">
-                            <a href="{{ route('customer_edit', ['slug' => $customer->slug , 'id' => $customer->id]) }}" class="btn btn-primary mr-2">
-                                {{ __('components/customers.button.edit') }}
+                        <div>
+                            @include('customer.modal._show', ['id' => $customer->id])
+                            <a href="{{ route('customer_edit', ['slug' => $customer->slug , 'id' => $customer->id]) }}"
+                               class="btn btn-light">
+                                <img src="{{ asset('img/icon/edit.svg') }}" width="16" height="24" alt="">
                             </a>
                             <form method="post" action="{{ route('customer_delete', [ 'id'=> $customer->id ]) }}"
                                   style="display: inline-block" onsubmit="return confirm('Etes vous vraiment sur ?')">
                                 @csrf
                                 <input type="hidden" name="_method" value="DELETE">
-                                <button type="submit" class="btn btn-danger btn-icon">
-                                    {{ __('components/customers.button.delete') }}
+                                <button type="submit" class="btn btn-light">
+                                    <img src="{{ asset('img/icon/delete.svg') }}" width="24" alt="">
                                 </button>
                             </form>
                         </div>
