@@ -4,7 +4,8 @@
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="showCustomer{{$customer->ic}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="showCustomer{{$customer->ic}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -25,7 +26,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary"
+                        data-bs-dismiss="modal">{{ __('components/customers.modal.button.close') }}</button>
             </div>
         </div>
     </div>

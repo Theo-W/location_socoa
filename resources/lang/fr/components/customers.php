@@ -40,6 +40,11 @@ return [
             'contact' => 'Contact :',
             'information' => 'Information Complémentaire :'
         ],
+
+        'button' => [
+          'close' => 'Fermer'
+        ],
+
         'phone' => 'Téléphone :',
         'email'=> 'Email :',
         'adress' => 'Adresse :',
