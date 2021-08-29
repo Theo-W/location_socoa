@@ -36,6 +36,6 @@ Route::middleware('auth')->prefix('customer')->group(function () {
 Route::middleware('auth')->prefix('reservation')->group(function () {
     Route::get('/', [ReservationController::class, 'index'])->name('reservation');
 });
-Route::middleware('auth')->prefix('customer')->group(function () {
+Route::middleware('auth')->prefix('calendar')->group(function () {
     Route::get('/', [CalendarController::class, 'index'])->name('calendar');
 });

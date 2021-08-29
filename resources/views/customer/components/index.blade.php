@@ -44,14 +44,14 @@
                         <div>
                             @include('customer.modal._show', ['id' => $customer->id])
                             <a href="{{ route('customer_edit', ['slug' => $customer->slug , 'id' => $customer->id]) }}"
-                               class="btn btn-light">
+                               class="btn btn-icon">
                                 <img src="{{ asset('img/icon/edit.svg') }}" width="16" height="24" alt="">
                             </a>
                             <form method="post" action="{{ route('customer_delete', [ 'id'=> $customer->id ]) }}"
                                   style="display: inline-block" onsubmit="return confirm('Etes vous vraiment sur ?')">
                                 @csrf
                                 <input type="hidden" name="_method" value="DELETE">
-                                <button type="submit" class="btn btn-light">
+                                <button type="submit" class="btn btn-icon">
                                     <img src="{{ asset('img/icon/delete.svg') }}" width="24" alt="">
                                 </button>
                             </form>

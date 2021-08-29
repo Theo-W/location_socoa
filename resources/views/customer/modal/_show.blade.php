@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#showCustomer{{$customer->ic}}">
+<button type="button" class="btn btn-icon" data-bs-toggle="modal" data-bs-target="#showCustomer{{$customer->ic}}">
     <img src="{{ asset('img/icon/eye.svg') }}" width="24" alt="">
 </button>
 
