@@ -18,7 +18,7 @@ class CreateReservationsTable extends Migration
             $table->string('title');
             $table->string('start');
             $table->string('end');
-            $table->boolean('pay');
+            $table->boolean('pay')->nullable();
 
             $table->foreignId('customer_id')
                 ->constrained();

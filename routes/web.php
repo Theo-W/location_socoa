@@ -35,6 +35,11 @@ Route::middleware('auth')->prefix('customer')->group(function () {
 });
 Route::middleware('auth')->prefix('reservation')->group(function () {
     Route::get('/', [ReservationController::class, 'index'])->name('reservation');
+    Route::get('/create', [ReservationController::class, 'create'])->name('reservation_create');
+    Route::post('/create', [ReservationController::class, 'storeCreate'])->name('reservation_store_create');
+    Route::get('/edit/{slug}/{id}', [ReservationController::class, 'edit'])->name('reservation_edit');
+    Route::post('/edit/{id}', [ReservationController::class, 'storeEdit'])->name('reservation_store_edit');
+    Route::delete('/delete/{id}', [ReservationController::class, 'delete'])->name('reservation_delete');
 });
 Route::middleware('auth')->prefix('calendar')->group(function () {
     Route::get('/', [CalendarController::class, 'index'])->name('calendar');

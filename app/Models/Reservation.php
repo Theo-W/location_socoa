@@ -12,8 +12,9 @@ class Reservation extends Model
     public $timestamps = false;
     public $incrementing = false;
     protected $keyType = 'string';
+    protected $dates = ['start', 'end'];
 
-    protected $fillable = ['title', 'start', 'end', 'pay', 'customer_id'];
+    protected $fillable = ['title', 'start', 'end', 'pay', 'slug', 'customer_id'];
 
     public function customer()
     {
