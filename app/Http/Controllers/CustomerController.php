@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -29,18 +33,18 @@ class CustomerController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        Customer::create([
-            'last_name'=> $request->get('last_name'),
-            'first_name'=> $request->get('first_name'),
-            'email'=> $request->get('email'),
-            'phone'=> $request->get('phone'),
-            'adress'=> $request->get('adress'),
-            'postal_code'=> $request->get('postal_code'),
-            'city'=> $request->get('city'),
-            'slug' => Str::random(15),
-        ]);
+        $customer = new Customer;
+        $customer->last_name = $request->get('last_name');
+        $customer->last_name = $request->get('first_name');
+        $customer->email = $request->get('email');
+        $customer->phone = $request->get('phone');
+        $customer->adress = $request->get('adress');
+        $customer->postal_code = $request->get('postal_code');
+        $customer->city = $request->get('city');
+        $customer->slug =Str::random(15);
+        $customer->save();
 
         return redirect()->route('customer');
     }
@@ -54,26 +58,26 @@ class CustomerController extends Controller
         ]);
     }
 
-    public function storeEdit($id, Request $request)
+    public function storeEdit($id, Request $request): RedirectResponse
     {
-         Customer::find($id)->update([
-            'last_name'=> $request->get('last_name'),
-            'first_name'=> $request->get('first_name'),
-            'email'=> $request->get('email'),
-            'phone'=> $request->get('phone'),
-            'adress'=> $request->get('adress'),
-            'postal_code'=> $request->get('postal_code'),
-            'city'=> $request->get('city'),
-        ]);
+        $customer = Customer::find($id);
+        $customer->last_name = $request->get('last_name');
+        $customer->first_name = $request->get('first_name');
+        $customer->email = $request->get('email');
+        $customer->phone = $request->get('phone');
+        $customer->adress = $request->get('adress');
+        $customer->postal_code = $request->get('postal_code');
+        $customer->city = $request->get('city');
+        $customer->save();
 
         return redirect()->route('customer');
     }
 
-    public function delete($id)
+    public function delete($id): RedirectResponse
     {
         $customer = Customer::find($id);
 
-        if ($customer != null){
+        if ($customer != null) {
             $customer->delete();
             return redirect()->route('customer');
         } else {
