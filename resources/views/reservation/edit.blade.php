@@ -9,32 +9,63 @@
             <div class="row mt-2">
                 <div class="col-md-6">
                     <label for="title" class="form-label">{{ __('components/reservation.input.title') }}</label>
-                    <input type="text" class="form-control" name="title" id="title"
-                           value="{{ $reservations->title }}">
+                    <div class="col-md-12">
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
+                               id="title"
+                               value="{{ $reservations->title }}">
+                        @error('title')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <label for="start" class="form-label">{{ __('components/reservation.input.start') }}</label>
-                    <input type="date" class="form-control" id="start" name="start"
-                           value="{{ $reservations->start->format('Y-m-d') }}">
+                    <div class="col-md-12">
+                        <input type="date" class="form-control @error('start') is-invalid @enderror" id="start"
+                               name="start"
+                               value="{{ $reservations->start->format('Y-m-d') }}">
+                        @error('start')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                    </div>
                 </div>
             </div>
             <div class="row mt-2">
                 <div class="col-md-6">
                     <label for="end" class="form-label">{{ __('components/reservation.input.end') }}</label>
-                    <input type="date" class="form-control" name="end" id="end"
-                           value="{{ $reservations->end->format('Y-m-d') }}">
+                    <div class="col-md-12">
+                        <input type="date" class="form-control  @error('end') is-invalid @enderror" name="end" id="end"
+                               value="{{ $reservations->end->format('Y-m-d') }}">
+                        @error('end')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                    </div>
                 </div>
                 <div class=" col-md-6">
                     <label for="customer_id"
                            class="form-label">{{ __('components/reservation.input.customer') }}</label>
-                    <select type="date" class="form-select" id="customer_id" name="customer_id">
-                        @foreach($customers as $customer)
-                            <option
-                                value="{{ $customer->id }}" {{ $reservations->customer_id === $customer->id ? 'selected' :''}}>
-                                {{ $customer->first_name }} {{ $customer->last_name }}
-                            </option>
-                        @endforeach
-                    </select>
+                    <div class="col-md-12">
+                        <select type="date" class="form-select @error('customer_id') is-invalid @enderror"
+                                id="customer_id" name="customer_id">
+                            @foreach($customers as $customer)
+                                <option
+                                    value="{{ $customer->id }}" {{ $reservations->customer_id === $customer->id ? 'selected' :''}}>
+                                    {{ $customer->first_name }} {{ $customer->last_name }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('customer_id')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                    </div>
                 </div>
             </div>
             <div class="row mt-2">
