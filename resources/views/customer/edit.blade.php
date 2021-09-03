@@ -7,21 +7,49 @@
         <div class="row mt-2">
             <div class="col-md-6">
                 <label for="first_name" class="form-label">{{ __('components/customers.input.first_name') }}</label>
-                <input type="text" class="form-control" name="first_name" id="first_name" value="{{ $customer->first_name }}">
+                <div class="col-md-12">
+                    <input type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" id="first_name" value="{{ $customer->first_name }}">
+                    @error('first_name')
+                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                    @enderror
+                </div>
             </div>
             <div class="col-md-6">
                 <label for="last_name" class="form-label">{{ __('components/customers.input.last_name') }}</label>
-                <input type="text" class="form-control" id="last_name" name="last_name" value="{{ $customer->last_name }}">
+                <div class="col-md-12">
+                    <input type="text" class="form-control @error('last_name') is-invalid @enderror" id="last_name" name="last_name" value="{{ $customer->last_name }}">
+                    @error('last_name')
+                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                    @enderror
+                </div>
             </div>
         </div>
         <div class="row mt-2">
             <div class="col-md-6">
                 <label for="email" class="form-label">{{ __('components/customers.input.email') }}</label>
-                <input type="email" class="form-control" id="email" name="email" value="{{ $customer->email }}">
+                <div class="col-md-12">
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ $customer->email }}">
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                    @enderror
+                </div>
             </div>
             <div class="col-md-6">
                 <label for="phone" class="form-label">{{ __('components/customers.input.phone') }}</label>
-                <input type="text" class="form-control" id="phone" name="phone" value="{{ $customer->phone }}">
+                <div class="col-md-12">
+                    <input type="text" class="form-control @error('email') is-invalid @enderror" id="phone" name="phone" value="{{ $customer->phone }}">
+                    @error('phone')
+                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                    @enderror
+                </div>
             </div>
         </div>
         <div class="row mt-2">
