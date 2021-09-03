@@ -12,8 +12,7 @@ class Calendar extends Component
     public function render()
     {
         $this->events = json_encode(Reservation::all());
-
-        return view('calendar.index', [
+        return view('calendar.calendar', [
             'reservations' => $this->events
         ]);
     }
