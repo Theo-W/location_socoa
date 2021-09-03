@@ -35,7 +35,7 @@ class CustomerController extends Controller
     {
         $customer = new Customer;
         $customer->last_name = $request->get('last_name');
-        $customer->last_name = $request->get('first_name');
+        $customer->first_name = $request->get('first_name');
         $customer->email = $request->get('email');
         $customer->phone = $request->get('phone');
         $customer->adress = $request->get('adress');
