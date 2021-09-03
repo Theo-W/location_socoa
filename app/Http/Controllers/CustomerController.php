@@ -52,7 +52,7 @@ class CustomerController extends Controller
         $customer->slug = Str::random(15);
         $customer->save();
 
-        return redirect()->route('customer');
+        return redirect()->route('customer')->with('success', 'Votre client à bien été créer');
     }
 
     public function edit(string $slug, int $id)
@@ -84,7 +84,7 @@ class CustomerController extends Controller
         $customer->city = $request->get('city');
         $customer->save();
 
-        return redirect()->route('customer');
+        return redirect()->route('customer')->with('success', 'Votre client à bien été modifier');
     }
 
     public function delete($id): RedirectResponse
@@ -93,9 +93,9 @@ class CustomerController extends Controller
 
         if ($customer != null) {
             $customer->delete();
-            return redirect()->route('customer');
+            return redirect()->route('customer')->with('success', 'Votre client à bien été supprimer');
         } else {
-            return redirect()->route('customer');
+            return redirect()->route('customer')->with('danger', "Votre Client n'a pas pu étres supprimer");
         }
     }
 }

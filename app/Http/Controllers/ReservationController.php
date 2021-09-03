@@ -33,7 +33,7 @@ class ReservationController extends Controller
         $reservation->slug =  Str::random(15);
         $reservation->save();
 
-        return redirect()->route('reservation');
+        return redirect()->route('reservation')->with('success', 'Votre réservation à bien été créer');
     }
 
     public function edit(string $slug,int $id)
@@ -57,7 +57,7 @@ class ReservationController extends Controller
         $reservation->customer_id = $request->get('customer_id');
         $reservation->save();
 
-        return redirect()->route('reservation');
+        return redirect()->route('reservation')->with('success', 'Votre réservation à bien été modifier');
     }
 
     public function delete($id): RedirectResponse
@@ -67,6 +67,6 @@ class ReservationController extends Controller
         if ($reservation != null){
             $reservation->delete();
         }
-        return redirect()->route('reservation');
+        return redirect()->route('reservation')->with('success', 'Votre réservation à bien été supprimer');
     }
 }

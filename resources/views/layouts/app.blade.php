@@ -79,6 +79,7 @@
 </nav>
 
 <main class="container mt-3">
+    @include('layouts.flash_message')
     @yield('content')
     @livewireScripts
     @stack('scripts')
