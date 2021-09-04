@@ -33,13 +33,12 @@ class CustomerController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        /*$this->validate(request(), [
-            'title' => 'required|min:3',
+        $request->validate([
             'last_name' => 'required|min:3',
             'first_name' => 'required|min:3',
             'email' => 'email',
             'phone' => 'required|min:3|max:10',
-        ]);*/
+        ]);
 
         $customer = new Customer;
         $customer->last_name = $request->get('last_name');
@@ -66,13 +65,12 @@ class CustomerController extends Controller
 
     public function storeEdit($id, Request $request): RedirectResponse
     {
-        /*$this->validate($request, [
-            'title' => 'required|min:3',
+        $this->validate($request, [
             'last_name' => 'required|min:3',
             'first_name' => 'required|min:3',
             'email' => 'email',
             'phone' => 'required|min:3|max:10',
-        ]);*/
+        ]);
 
         $customer = Customer::find($id);
         $customer->last_name = $request->get('last_name');

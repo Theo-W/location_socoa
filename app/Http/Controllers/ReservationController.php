@@ -24,6 +24,13 @@ class ReservationController extends Controller
 
     public function storeCreate(Request $request): RedirectResponse
     {
+        $request->validate([
+            'title' => 'required|min:3',
+            'start' => 'required',
+            'end' => 'required',
+            'customer_id' => 'required'
+        ]);
+
         $reservation = new Reservation;
         $reservation->title = $request->get('title');
         $reservation->start = $request->get('start');
@@ -49,6 +56,13 @@ class ReservationController extends Controller
 
     public function storeEdit(int $id, Request $request): RedirectResponse
     {
+        $request->validate([
+            'title' => 'required|min:3',
+            'start' => 'required',
+            'end' => 'required',
+            'customer_id' => 'required'
+        ]);
+        
         $reservation = Reservation::find($id);
         $reservation->title = $request->get('title');
         $reservation->start = $request->get('start');

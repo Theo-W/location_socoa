@@ -55,7 +55,7 @@
                         <select type="date" class="form-select  @error('customer_id') is-invalid @enderror"
                                 id="customer_id" name="customer_id">
                             <option
-                                selected>{{ __('components/reservation.input.placeolder.choice_customer') }}</option>
+                                selected disabled>{{ __('components/reservation.input.placeolder.choice_customer') }}</option>
                             @foreach($customers as $customer)
                                 <option
                                     value="{{ $customer->id }}">{{ $customer->first_name }} {{ $customer->last_name }}</option>
