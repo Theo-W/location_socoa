@@ -4,7 +4,7 @@ import {resolve} from 'path'
 
 // Blade refresh plugin
 const bladeRefreshPlugin = {
-    name: 'twig-refresh',
+    name: 'blade-refresh',
     configureServer ({watcher, ws}){
         watcher.add(resolve('resources/**/*.blade.php'))
         watcher.on('change', function (path){
