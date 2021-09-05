@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'admin',
             'email' => 'theo.wittig@free.fr',
-            'password' => Hash::make('admin'),
+            'password' => Hash::make('appartementsocoa2021*'),
         ]);
     }
 }
